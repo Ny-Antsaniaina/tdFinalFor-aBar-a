@@ -1,12 +1,11 @@
 openapi: 3.0.0
 info:
-  title: Football Competition Management API
+  title: STD23030 - TDFinal P1
   version: 1.0.0
-  description: API for managing football competitions, teams, and players.
+  description: Footbal
 
 servers:
-  - url: https://api.football-competition.com/v1
-    description: Main (production) server
+  - url: https://localhost.std23030.com
 
 paths:
   /competitions:
@@ -50,13 +49,12 @@ paths:
 
   /teams:
     get:
-      summary: Get a list of teams
+      summary:  list of teams
       parameters:
         - name: teamName
           in: query
           schema:
             type: string
-          description: Filter teams by name
         - name: page
           in: query
           required: true
@@ -105,7 +103,6 @@ paths:
           in: query
           schema:
             type: string
-          description: Filter players by name
         - name: page
           in: query
           required: true
@@ -126,7 +123,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PlayerList'
     post:
-      summary: Create a new player for a specific team
+      summary: Create a new player 
       requestBody:
         required: true
         content:
@@ -148,11 +145,11 @@ components:
       properties:
         name:
           type: string
-          example: LIGA
+         
         location:
           type: string
           description: The country or continent where the competition takes place
-          example: ESPAGNE
+       
 
     CompetitionList:
       type: object
@@ -173,10 +170,10 @@ components:
       properties:
         name:
           type: string
-          example: Real Madrid
+       
         slogan:
           type: string
-          example: Hala Madrid
+          
         competitions:
           type: array
           items:
@@ -205,16 +202,16 @@ components:
       properties:
         name:
           type: string
-          example: Lionel Messi
+         
         number:
           type: integer
-          example: 10
+       
         strongFoot:
           type: string
           enum:
             - Gauche
             - Droite
-          example: Gauche
+          
 
     PlayerList:
       type: object
